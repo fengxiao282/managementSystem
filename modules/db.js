@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * Created by Administrator on 2017/8/18 0018.
  */
 var MongoClient=require('mongodb').MongoClient;
 
-var DbUrl='mongodb://localhost:27017/productmanage';  /*Á¬½ÓÊı¾İ¿â*/
+var DbUrl='mongodb://localhost:27017/productmanage';  /*è¿æ¥æ•°æ®åº“*/
 
 var ObjectID = require('mongodb').ObjectID;
 
@@ -15,10 +15,10 @@ function  __connectDb(callback){
 
         if(err){
 
-            console.log('Êı¾İ¿âÁ¬½ÓÊ§°Ü');
+            console.log('æ•°æ®åº“è¿æ¥å¤±è´¥');
             return;
         }
-        //Ôö¼Ó ĞŞ¸Ä É¾³ı
+        //å¢åŠ  ä¿®æ”¹ åˆ é™¤
 
           callback(db);
 
@@ -27,15 +27,15 @@ function  __connectDb(callback){
 
 }
 
-//±©Â¶ ObjectID
+//æš´éœ² ObjectID
 
 
 exports.ObjectID=ObjectID;
 
-//Êı¾İ¿â²éÕÒ
+//æ•°æ®åº“æŸ¥æ‰¾
 /*
  Db.find('user',{},function(err,data){
-    dataÊı¾İ
+    dataæ•°æ®
 })
 
  */
@@ -48,15 +48,15 @@ exports.find=function(collectionname,json,callback){
 
         result.toArray(function(error,data){
 
-            db.close();/*¹Ø±ÕÊı¾İ¿âÁ¬½Ó*/
-            callback(error,data);/*ÄÃµ½Êı¾İÖ´ĞĞ»Øµ÷º¯Êı*/
+            db.close();/*å…³é—­æ•°æ®åº“è¿æ¥*/
+            callback(error,data);/*æ‹¿åˆ°æ•°æ®æ‰§è¡Œå›è°ƒå‡½æ•°*/
         })
 
     })
 
 }
 
-//Ôö¼ÓÊı¾İ
+//å¢åŠ æ•°æ®
 exports.insert=function(collectionname,json,callback){
 
     __connectDb(function(db){
@@ -71,7 +71,7 @@ exports.insert=function(collectionname,json,callback){
 }
 
 
-//Ôö¼ÓÊı¾İ
+//å¢åŠ æ•°æ®
 exports.update=function(collectionname,json1,json2,callback){
 
     __connectDb(function(db){
@@ -83,7 +83,7 @@ exports.update=function(collectionname,json1,json2,callback){
 
 }
 
-//É¾³ıÊı¾İ
+//åˆ é™¤æ•°æ®
 exports.deleteOne=function(collectionname,json,callback){
 
     __connectDb(function(db){
